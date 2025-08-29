@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printex - Professional Bulk Printing Services for Educational Institutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .trust-badge {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 2px solid #cbd5e1;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <svg class="h-8 w-8 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                        </svg>
+                        <span class="text-2xl font-bold text-gray-900">Printex</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home"
+                            class="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#services"
+                            class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="#why-choose-us"
+                            class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Why
+                            Choose Us</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-16 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen">
+                <div class="text-white fade-in">
+                    <div class="mb-6">
+                        <span
+                            class="inline-block bg-yellow-400 text-blue-900 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                            🎓 Trusted by Educational Institutions
+                        </span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                        Professional Bulk Printing for
+                        <span class="text-yellow-300">Academic Excellence</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-blue-100">
+                        Serving colleges, universities, and schools with high-quality printing solutions. Proud partner
+                        of Parul University and leading educational institutions.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#services"
+                            class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors text-center">
+                            View Services
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="mt-12 flex flex-wrap items-center gap-6">
+                        <div class="flex items-center text-blue-100">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" />
+                            </svg>
+                            <span class="text-sm">Parul University Partner</span>
+                        </div>
+                        <div class="flex items-center text-blue-100">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" />
+                            </svg>
+                            <span class="text-sm">50+ Schools & Colleges</span>
+                        </div>
+                        <div class="flex items-center text-blue-100">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" />
+                            </svg>
+                            <span class="text-sm">Same-Day Service</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center lg:justify-end">
+                    <div class="floating-animation">
+                        <svg class="w-80 h-80 text-white opacity-20" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19,12H22L18,8V11H4A2,2 0 0,0 2,13V19A2,2 0 0,0 4,21H14A2,2 0 0,0 16,19V13A2,2 0 0,0 14,11H18V8L22,12H19M4,13H14V19H4V13M6,15V17H8V15H6M10,15V17H12V15H10Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Specialized Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive printing solutions designed specifically for educational institutions and academic
+                    needs.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Banner Printing -->
+                <div
+                    class="service-card bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-xl border border-blue-200">
+                    <div class="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M21,3H3A1,1 0 0,0 2,4V20A1,1 0 0,0 3,21H21A1,1 0 0,0 22,20V4A1,1 0 0,0 21,3M20,19H4V5H20V19M17,17V15H15V17H17M13,17V15H11V17H13M9,17V15H7V17H9Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Banner Printing</h3>
+                    <p class="text-gray-700 mb-6">High-quality vinyl and fabric banners for graduation ceremonies,
+                        campus events, and institutional branding.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Custom sizes up to 20ft wide</li>
+                        <li>• Weather-resistant materials</li>
+                        <li>• Same-day rush orders available</li>
+                        <li>• Perfect for convocations & events</li>
+                    </ul>
+                </div>
+
+                <!-- Exam Paper Printing -->
+                <div
+                    class="service-card bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-xl border border-green-200">
+                    <div class="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Exam Paper Printing</h3>
+                    <p class="text-gray-700 mb-6">Secure, confidential printing of examination papers with strict
+                        quality control and timely delivery.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Confidential handling protocols</li>
+                        <li>• Multiple paper grades available</li>
+                        <li>• Bulk quantity discounts</li>
+                        <li>• Trusted by universities</li>
+                    </ul>
+                </div>
+
+                <!-- Assignments & Reports -->
+                <div
+                    class="service-card bg-gradient-to-br from-purple-50 to-violet-100 p-8 rounded-xl border border-purple-200">
+                    <div class="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M16,9H8V7H16M16,13H8V11H16M16,17H8V15H16M3,5A2,2 0 0,1 5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Assignments & Reports</h3>
+                    <p class="text-gray-700 mb-6">Professional binding and printing services for student assignments,
+                        research papers, and academic reports.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Spiral, comb & thermal binding</li>
+                        <li>• Color and B&W options</li>
+                        <li>• Student-friendly pricing</li>
+                        <li>• Quick turnaround time</li>
+                    </ul>
+                </div>
+
+                <!-- Administrative Forms -->
+                <div
+                    class="service-card bg-gradient-to-br from-orange-50 to-amber-100 p-8 rounded-xl border border-orange-200">
+                    <div class="w-16 h-16 bg-orange-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M19,19H5V5H19V19M17,12H7V10H17V12M15,16H7V14H15V16M17,8H7V6H17V8Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Administrative Forms</h3>
+                    <p class="text-gray-700 mb-6">Custom forms, applications, certificates, and administrative documents
+                        with professional finishing.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• NCR (carbonless) forms</li>
+                        <li>• Perforated options</li>
+                        <li>• Sequential numbering</li>
+                        <li>• Official document quality</li>
+                    </ul>
+                </div>
+
+                <!-- Event Posters -->
+                <div
+                    class="service-card bg-gradient-to-br from-red-50 to-rose-100 p-8 rounded-xl border border-red-200">
+                    <div class="w-16 h-16 bg-red-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M5,17L9.5,11L13,15.5L15.5,12.5L19,17M20,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8A2,2 0 0,0 20,6Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Event Posters & Flyers</h3>
+                    <p class="text-gray-700 mb-6">Eye-catching promotional materials for campus events, seminars,
+                        workshops, and academic conferences.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Full-color printing</li>
+                        <li>• Various paper stocks</li>
+                        <li>• Design assistance available</li>
+                        <li>• Bulk event packages</li>
+                    </ul>
+                </div>
+
+                <!-- Custom Solutions -->
+                <div
+                    class="service-card bg-gradient-to-br from-teal-50 to-cyan-100 p-8 rounded-xl border border-teal-200">
+                    <div class="w-16 h-16 bg-teal-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Custom Solutions</h3>
+                    <p class="text-gray-700 mb-6">Tailored printing solutions for unique educational requirements and
+                        special institutional projects.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Consultation services</li>
+                        <li>• Volume pricing</li>
+                        <li>• Dedicated account management</li>
+                        <li>• Long-term partnerships</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Educational Institutions Choose Printex</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Trusted partnerships, proven quality, and dedicated service for academic excellence.
+                </p>
+            </div>
+
+            <!-- Key Partnership Highlight -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-12 border-l-8 border-blue-600">
+                <div class="flex flex-col lg:flex-row items-center gap-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center">
+                            <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="text-center lg:text-left">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">🎓 Proud Partner of Parul University</h3>
+                        <p class="text-lg text-gray-700 mb-4">
+                            We are honored to serve as the trusted printing partner for Parul University, handling their
+                            bulk printing requirements with excellence and reliability. This partnership demonstrates
+                            our commitment to educational institutions and our ability to deliver at scale.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                            <span
+                                class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold">University
+                                Partnership</span>
+                            <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold">Bulk
+                                Orders</span>
+                            <span
+                                class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold">Trusted
+                                Quality</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Quality Assurance -->
+                <div class="trust-badge rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Quality Assurance</h3>
+                    <p class="text-gray-700">
+                        Rigorous quality control processes ensure every print meets educational standards. From exam
+                        papers to certificates, we maintain the highest quality.
+                    </p>
+                </div>
+
+                <!-- Educational Expertise -->
+                <div class="trust-badge rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Educational Expertise</h3>
+                    <p class="text-gray-700">
+                        Deep understanding of academic requirements, from confidential exam printing to student-friendly
+                        pricing for assignments and projects.
+                    </p>
+                </div>
+
+                <!-- Bulk Capacity -->
+                <div class="trust-badge rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19,12H22L18,8V11H4A2,2 0 0,0 2,13V19A2,2 0 0,0 4,21H14A2,2 0 0,0 16,19V13A2,2 0 0,0 14,11H18V8L22,12H19M4,13H14V19H4V13M6,15V17H8V15H6M10,15V17H12V15H10Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Bulk Capacity</h3>
+                    <p class="text-gray-700">
+                        Advanced printing infrastructure capable of handling large institutional orders with consistent
+                        quality and on-time delivery.
+                    </p>
+                </div>
+
+                <!-- Competitive Pricing -->
+                <div class="trust-badge rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Competitive Pricing</h3>
+                    <p class="text-gray-700">
+                        Educational institution-friendly pricing with volume discounts. We understand budget constraints
+                        and offer cost-effective solutions.
+                    </p>
+                </div>
+
+                <!-- Reliable Delivery -->
+                <div class="trust-badge rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Reliable Delivery</h3>
+                    <p class="text-gray-700">
+                        Punctual delivery schedules that align with academic calendars. We understand the importance of
+                        meeting exam and event deadlines.
+                    </p>
+                </div>
+
+                <!-- Confidentiality -->
+                <div class="trust-badge rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V16H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Confidentiality</h3>
+                    <p class="text-gray-700">
+                        Strict confidentiality protocols for sensitive documents like exam papers and administrative
+                        forms. Your trust is our priority.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Client Testimonial -->
+            <div class="mt-16 bg-white rounded-2xl shadow-xl p-8">
+                <div class="text-center">
+                    <div class="flex justify-center mb-6">
+                        <div class="flex space-x-1">
+                            <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z" />
+                            </svg>
+                            <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z" />
+                            </svg>
+                            <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z" />
+                            </svg>
+                            <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z" />
+                            </svg>
+                            <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <blockquote class="text-xl text-gray-700 italic mb-6">
+                        "Printex has been our reliable printing partner for over 3 years. Their quality, timeliness, and
+                        understanding of our academic requirements make them indispensable to our operations."
+                    </blockquote>
+                    <div class="text-gray-900 font-semibold">Academic Administration Department</div>
+                    <div class="text-gray-600">Leading Educational Institution</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-r from-blue-600 to-purple-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Get In Touch</h2>
+                <p class="text-xl text-blue-100">
+                    Ready to discuss your institutional printing needs? We're here to help.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8 text-white">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-blue-900" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-2">Our Location</h3>
+                            <p class="text-blue-100">123 Education Drive<br>University District<br>Academic City, AC
+                                12345</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-blue-900" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-2">Phone & Fax</h3>
+                            <p class="text-blue-100">Phone: (555) 123-PRINT<br>Fax: (555) 123-4568<br>Toll-Free:
+                                1-800-PRINTEX</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-blue-900" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-2">Email Us</h3>
+                            <p class="text-blue-100">info@printex.com<br>quotes@printex.com<br>institutional@printex.com
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-blue-900" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-2">Business Hours</h3>
+                            <p class="text-blue-100">Monday - Friday: 7:00 AM - 7:00 PM<br>Saturday: 9:00 AM - 5:00
+                                PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white rounded-2xl p-10 shadow-xl">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Send Us a Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <input type="hidden" name="_subject" value="New Contact Request from Printex Website">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Institution Name *</label>
+                                <input type="text" name="institution" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="Your institution name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Contact Person *</label>
+                                <input type="text" name="contact" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="Your full name">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                <input type="email" name="email" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="your.email@institution.edu">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                <input type="tel" name="phone" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="(555) 123-4567">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Service Needed *</label>
+                            <select name="service" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Select a service</option>
+                                <option value="banner">Banner Printing</option>
+                                <option value="exam">Exam Paper Printing</option>
+                                <option value="assignments">Assignments & Reports</option>
+                                <option value="forms">Administrative Forms</option>
+                                <option value="posters">Event Posters & Flyers</option>
+                                <option value="multiple">Multiple Services</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                            <textarea name="message" required rows="4"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                placeholder="Please describe your printing needs, quantities, timeline, and any special requirements..."></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-blue-600 text-white py-4 px-8 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-blue-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                        </svg>
+                        <span class="text-2xl font-bold">Printex</span>
+                    </div>
+                    <p class="text-gray-300 mb-4 max-w-md">
+                        Your trusted partner for professional bulk printing services. Proudly serving Parul University
+                        and 50+ educational institutions with quality, reliability, and competitive pricing.
+                    </p>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">🎓 Parul University
+                            Partner</span>
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">50+ Institutions</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#why-choose-us" class="hover:text-white transition-colors">Why Choose Us</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Our Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#services" class="hover:text-white transition-colors">Banner Printing</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Exam Papers</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Assignments</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Administrative Forms</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Event Posters</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Printex. All rights reserved. | Professional Printing Services for Educational Excellence
+                    | Proud Partner of Parul University | Designed By Sharma Yogesh</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
+        });
+
+        // Contact form submission (AJAX, no redirect)
+        document.querySelector("#contact-form").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch("https://formspree.io/f/xeolepjq", {
+                    method: "POST",
+                    body: formData,
+                    headers: { "Accept": "application/json" }
+                });
+
+                if (response.ok) {
+                    form.innerHTML = `
+  <div class="text-center py-8">
+    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+      </svg>
+    </div>
+    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
+    <p class="text-gray-600">Thank you for submitting, we will contact you in 24 hours.</p>
+  </div>`;
+
+                } else {
+                    console.log(response.status, await response.text());
+                    alert("Oops! Something went wrong. Check console for details.");
+                }
+            } catch (error) {
+                console.error("Fetch error:", error);
+                alert("Error submitting form. Please try again.");
+            }
+        });
+
+        // Reset form function (optional if you use reset buttons)
+        function resetForm(button) {
+            const form = button.closest("form");
+            form.reset();
+        }
+    </script>
+
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9759e4ba973448dd',t:'MTc1NjI4MDE0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
