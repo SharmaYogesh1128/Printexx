@@ -59,8 +59,172 @@
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             border: 2px solid #cbd5e1;
         }
+
+        .active-link {
+            color: #000000;
+            /* Black color for the active link */
+            font-weight: 600;
+            /* Make it bold to stand out */
+        }
+
+        /* New style for active navigation link */
+        .active-nav-link {
+            color: #000000 !important;
+            /* Force black color */
+            font-weight: 600 !important;
+            /* Force bold */
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, crop if necessary */
+            display: block;
+        }
+
+        /* Styles for the image modal */
+        .image-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .image-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background-color: white; /* Optional: if you want a background for the image itself */
+            padding: 1rem; /* Optional: padding around the image */
+            border-radius: 0.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-modal-content img {
+            max-width: 100%;
+            max-height: 80vh; /* Limit height to viewport height */
+            display: block;
+            margin: 0 auto;
+            object-fit: contain; /* Ensure the whole image is visible */
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            z-index: 1001; /* Ensure close button is above content */
+            padding: 0.5rem;
+            line-height: 1;
+        }
+
+        .image-modal-close:hover {
+            color: #ccc;
+        }
     </style>
 </head>
+<script>
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150; // adjust for sticky header
+            const sectionHeight = section.offsetHeight;
+
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach(link => {
+            // Exclude the "Contact Us" button from active state styling
+            if (link.getAttribute("href") === "#contact" && link.classList.contains("bg-blue-600")) {
+                link.classList.remove("active-nav-link"); // Ensure it doesn't get the active class
+                return; // Skip to the next link
+            }
+
+            // Remove active class from all non-contact links first
+            link.classList.remove("active-nav-link");
+
+            // Add active class to the current section's link
+            if (link.getAttribute("href") === "#" + current) {
+                link.classList.add("active-nav-link");
+            }
+        });
+    });
+
+    // JavaScript for the Image Modal
+    document.addEventListener('DOMContentLoaded', () => {
+        const galleryItems = document.querySelectorAll('.gallery-item a');
+        const modalOverlay = document.getElementById('image-modal-overlay');
+        const modalImage = document.getElementById('image-modal-img');
+        const closeModalBtn = document.getElementById('image-modal-close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                const imageUrl = item.getAttribute('href');
+                modalImage.src = imageUrl;
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+
+        // Close modal if clicking outside the image
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+</script>
 
 <body class="bg-gray-50">
     <!-- Navigation -->
@@ -79,13 +243,17 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="#home"
-                            class="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                            class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
                         <a href="#services"
                             class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
                         <a href="#why-choose-us"
                             class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Why
                             Choose Us</a>
-
+                        <a href="#gallery"
+                            class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Gallery</a>
+                        <a href="#contact"
+                            class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Contact
+                            Us</a>
                     </div>
                 </div>
             </div>
@@ -331,7 +499,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Quality Assurance -->
-                <div class="trust-badge rounded-xl p-8 text-center">
+                <div class="trust-badge service-card rounded-xl p-8 text-center">
                     <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -346,7 +514,7 @@
                 </div>
 
                 <!-- Educational Expertise -->
-                <div class="trust-badge rounded-xl p-8 text-center">
+                <div class="trust-badge service-card rounded-xl p-8 text-center">
                     <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -361,7 +529,7 @@
                 </div>
 
                 <!-- Bulk Capacity -->
-                <div class="trust-badge rounded-xl p-8 text-center">
+                <div class="trust-badge service-card rounded-xl p-8 text-center">
                     <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -369,14 +537,14 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-4">Bulk Capacity</h3>
-                    <p class="text-gray-700">
+                    <p class="text-700">
                         Advanced printing infrastructure capable of handling large institutional orders with consistent
                         quality and on-time delivery.
                     </p>
                 </div>
 
                 <!-- Competitive Pricing -->
-                <div class="trust-badge rounded-xl p-8 text-center">
+                <div class="trust-badge service-card rounded-xl p-8 text-center">
                     <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -391,7 +559,7 @@
                 </div>
 
                 <!-- Reliable Delivery -->
-                <div class="trust-badge rounded-xl p-8 text-center">
+                <div class="trust-badge service-card rounded-xl p-8 text-center">
                     <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -406,7 +574,7 @@
                 </div>
 
                 <!-- Confidentiality -->
-                <div class="trust-badge rounded-xl p-8 text-center">
+                <div class="trust-badge service-card rounded-xl p-8 text-center">
                     <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -454,6 +622,108 @@
                     </blockquote>
                     <div class="text-gray-900 font-semibold">Academic Administration Department</div>
                     <div class="text-gray-600">Leading Educational Institution</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Work in Action</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A glimpse into the quality and variety of printing projects we deliver for educational institutions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item bg-gray-100">
+                    <a href="Confidential Exam Printing.jpg">
+                        <img src="Confidential Exam Printing.jpg" alt="Exam Paper Printing" class="w-full h-48 object-cover rounded-t-xl">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Confidential Exam Printing</h3>
+                        <p class="text-sm text-gray-600">High-security printing for university examinations.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item bg-gray-100">
+                    <a href="Graduation Ceremony Banners.jpg">
+                        <img src="Graduation Ceremony Banners.jpg" alt="Graduation Banners" class="w-full h-48 object-cover rounded-t-xl">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Graduation Ceremony Banners</h3>
+                        <p class="text-sm text-gray-600">Vibrant banners for memorable academic events.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item bg-gray-100">
+                    <a href="Student Project Reports show only reports.jpg">
+                        <img src="Student Project Reports show only reports.jpg" alt="Student Reports" class="w-full h-48 object-cover rounded-t-xl">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Student Project Reports</h3>
+                        <p class="text-sm text-gray-600">Professionally bound assignments and research papers.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item bg-gray-100">
+                    <a href="Campus Event Flyers.jpg">
+                        <img src="Campus Event Flyers.jpg" alt="Campus Event Flyers" class="w-full h-48 object-cover rounded-t-xl">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Campus Event Flyers</h3>
+                        <p class="text-sm text-gray-600">Eye-catching promotional materials for university events.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item bg-gray-100">
+                    <a href="Official Certificates.jpg">
+                        <img src="Official Certificates.jpg" alt="Certificates" class="w-full h-48 object-cover rounded-t-xl">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Official Certificates</h3>
+                        <p class="text-sm text-gray-600">High-quality printing for academic achievements.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item bg-gray-100">
+                    <a href="Administrative Documents.jpg">
+                        <img src="Administrative Documents.jpg" alt="Administrative Forms" class="w-full h-48 object-cover rounded-t-xl">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Administrative Documents</h3>
+                        <p class="text-sm text-gray-600">Precise printing for all institutional forms.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item bg-gray-100">
+                    <a href="Informational Brochures.jpg">
+                        <img src="Informational Brochures.jpg" alt="Brochures" class="w-full h-48 object-cover rounded-t-xl">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Informational Brochures</h3>
+                        <p class="text-sm text-gray-600">Marketing materials for university admissions and programs.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item bg-gray-100">
+                    <a href="Bulk Course Materials for printing.jpg">
+                        <img src="Bulk Course Materials for printing.jpg" alt="Course Materials" class="w-full h-48 object-cover rounded-t-xl">
+                    </a>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Bulk Course Materials</h3>
+                        <p class="text-sm text-gray-600">Efficient printing for textbooks and study guides.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -627,6 +897,7 @@
                         <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
                         <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
                         <li><a href="#why-choose-us" class="hover:text-white transition-colors">Why Choose Us</a></li>
+                        <li><a href="#gallery" class="hover:text-white transition-colors">Gallery</a></li>
                         <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
@@ -650,58 +921,13 @@
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener("click", function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute("href")).scrollIntoView({
-                    behavior: "smooth"
-                });
-            });
-        });
-
-        // Contact form submission (AJAX, no redirect)
-        document.querySelector("#contact-form").addEventListener("submit", async function (e) {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-
-            try {
-                const response = await fetch("https://formspree.io/f/xeolepjq", {
-                    method: "POST",
-                    body: formData,
-                    headers: { "Accept": "application/json" }
-                });
-
-                if (response.ok) {
-                    form.innerHTML = `
-  <div class="text-center py-8">
-    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-      <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
-      </svg>
+    <!-- Image Modal Structure -->
+    <div id="image-modal-overlay" class="image-modal-overlay">
+        <button id="image-modal-close" class="image-modal-close">&times;</button>
+        <div class="image-modal-content">
+            <img id="image-modal-img" src="" alt="Enlarged Gallery Image">
+        </div>
     </div>
-    <h3 class="text-2xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
-    <p class="text-gray-600">Thank you for submitting, we will contact you in 24 hours.</p>
-  </div>`;
-
-                } else {
-                    console.log(response.status, await response.text());
-                    alert("Oops! Something went wrong. Check console for details.");
-                }
-            } catch (error) {
-                console.error("Fetch error:", error);
-                alert("Error submitting form. Please try again.");
-            }
-        });
-
-        // Reset form function (optional if you use reset buttons)
-        function resetForm(button) {
-            const form = button.closest("form");
-            form.reset();
-        }
-    </script>
 
     <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9759e4ba973448dd',t:'MTc1NjI4MDE0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
